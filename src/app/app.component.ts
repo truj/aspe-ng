@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'aspe-ng';
+  title = 'Demo Application: Angular / Spring Boot / Elasticsearch';
 }

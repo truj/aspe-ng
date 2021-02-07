@@ -1,0 +1,22 @@
+<form>
+	<div fxLayout="column">
+		<label fxFlex="25%" *ngIf="exists">
+			id: {{product.id}}
+		</label>
+		<label fxFlex="25%">
+			name:
+			<input [(ngModel)]="product.name" placeholder="name" name="name"/>
+		</label>
+		<label fxFlex="25%">
+			type:
+			<input [(ngModel)]="product.type" placeholder="type" name="type"/>
+		</label>
+		<label fxFlex="25%">
+			price:
+			<input [(ngModel)]="product.price" placeholder="price" name="price"/>
+		</label>
+		<label fxFlex="25%">
+			<button (click)="save()">Save</button>
+		</label>
+	</div>
+</form>

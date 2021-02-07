@@ -1,0 +1,41 @@
+<div fxLayout="row">
+	<button routerLink="/product/new">Create New Product</button>
+</div>
+<form (change)="filterHasChanged()">
+	<div fxLayout="row">
+		<label fxFlex="25%">
+			name:
+			<input [(ngModel)]="filter.name" placeholder="name" name="name"/>
+		</label>
+		<label fxFlex="25%">
+			type:
+			<input [(ngModel)]="filter.type" placeholder="type" name="type"/>
+		</label>
+		<label fxFlex="25%">
+			price:
+			<input [(ngModel)]="filter.price" placeholder="price" name="price"/>
+		</label>
+		<label fxFlex="25%">
+			<button (click)="search()">Search</button>
+		</label>
+	</div>
+</form>
+<div fxLayout="row">Current Search Filter:</div>
+<div fxLayout="row">
+	<div fxFlex="25%">name: {{filter.name}}</div>
+	<div fxFlex="25%">type: {{filter.type}}</div>
+	<div fxFlex="25%">price: {{filter.price}}</div>
+</div>
+
+<div *ngIf="isWaiting">
+	<b>Searching! Please be patient...</b>
+</div>
+
+<div *ngIf="hasError">
+	<b>Error:</b>
+	{{error}}
+</div>
+
+<div *ngIf="!isWaiting">
+	<app-product-list [products]="products"></app-product-list>
+</div>

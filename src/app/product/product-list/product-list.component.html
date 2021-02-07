@@ -1,0 +1,13 @@
+<div fxLayout="column">
+	<div *ngFor="let p of products">
+		<ul>
+			<li>id: {{p.id}}</li>
+			<li>name: {{p.name}}</li>
+			<li>type: {{p.type}}</li>
+			<li>price: {{p.price}}</li>
+			<li>
+				<a routerLink="/product/{{p.id}}">Edit</a>
+			</li>
+		</ul>
+	</div>
+</div>
