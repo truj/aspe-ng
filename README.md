@@ -1,3 +1,14 @@
+# aspe-ng
+
+ASPE is a project mainly for learning and demonstration.
+It's the web portal of a fictional company.
+
+This is the frontend part of the project, written in Angular 11.
+
+The [Backend Part](https://github.com/truj/aspe-sb) is a REST API written in Java with the Spring Boot framework.
+
+For more information about ASPE in general, see there.
+
 # AspeNg
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.3.
