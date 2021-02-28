@@ -1,5 +1,7 @@
-export interface ProductFilter {
-  name: string;
-  type: string;
-  price: string;
+export class ProductFilter {
+  id?: number;
+  name?: string;
+  type?: string;
+  priceMin?: string;
+  priceMax?: string;
 }

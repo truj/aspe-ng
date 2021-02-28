@@ -1,13 +1,26 @@
-<div fxLayout="column">
-	<div *ngFor="let p of products">
-		<ul>
-			<li>id: {{p.id}}</li>
-			<li>name: {{p.name}}</li>
-			<li>type: {{p.type}}</li>
-			<li>price: {{p.price}}</li>
-			<li>
-				<a routerLink="/product/{{p.id}}">Edit</a>
-			</li>
-		</ul>
+<div class="row">
+	<div *ngFor="let p of products" class="col-md-6 col-lg-4">
+		<mdb-card>
+			<mdb-card-body>
+				<mdb-card-title>
+					<h2>{{p.name}}</h2>
+				</mdb-card-title>
+				<mdb-card-text>
+					<div class="row">
+						<div class="col-6">id</div>
+						<div class="col-6">{{p.id}}</div>
+						<div class="col-6">name</div>
+						<div class="col-6">{{p.name}}</div>
+						<div class="col-6">type</div>
+						<div class="col-6">{{p.type}}</div>
+						<div class="col-6">price</div>
+						<div class="col-6">{{p.price}}</div>
+					</div>
+				</mdb-card-text>
+				<div>
+					<button routerLink="/product/{{p.id}}" class="btn btn-secondary">Edit</button>
+				</div>
+			</mdb-card-body>
+		</mdb-card>
 	</div>
 </div>

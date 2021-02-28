@@ -1,0 +1,73 @@
+<div *ngIf="!isReady">
+	<div class="row">
+		<div class="alert alert-info">
+			Please Wait...
+		</div>
+	</div>
+</div>
+
+<div *ngIf="isReady">
+	<form *ngIf="!idFormatError && !fetchError">
+		<mdb-card>
+			<mdb-card-body>
+				<div class="row">
+					<span *ngIf="exists" class="col-md-12">
+						id: {{user.id}}
+					</span>
+					<div class="col-md-6 col-lg-4">
+						<div class="md-form">
+							<input class="form-control mb-4" type="text" mdbInput
+								[(ngModel)]="user.userName" id="userName" name="userName"
+							/>
+							<label for="userName">User Name</label>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-4">
+						<div class="md-form">
+							<input class="form-control mb-4" type="text" mdbInput
+								[(ngModel)]="user.realName" id="realName" name="realName"
+							/>
+							<label for="realName">Real Name</label>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-4">
+						<div class="md-form">
+							<input class="form-control mb-4" type="text" mdbInput
+								[(ngModel)]="user.email" id="email" name="email"
+							/>
+							<label for="email">E-Mail</label>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-4">
+						<div class="checkbox-container">
+							<mdb-checkbox [(ngModel)]="user.active" id="active" name="active">Active</mdb-checkbox>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<button (click)="save()" class="btn btn-primary">{{ exists ? 'Update' : 'Create' }}</button>
+					</div>
+				</div>
+			</mdb-card-body>
+		</mdb-card>
+	</form>
+
+	<div class="row" *ngIf="idFormatError">
+		<div class="alert alert-danger">
+			Error: The user ID is not a valid number!
+		</div>
+	</div>
+
+	<div class="row" *ngIf="fetchError">
+		<div class="alert alert-danger">
+			Error: The user could not be found!
+		</div>
+	</div>
+
+	<div class="row" *ngIf="saveError">
+		<div class="alert alert-danger">
+			Error: The user could not be saved!
+		</div>
+	</div>
+</div>

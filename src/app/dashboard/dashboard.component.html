@@ -1,1 +1,156 @@
-<p>dashboard works!</p>
+<h2>About ASPE</h2>
+<p>
+	This is a project mainly for learning and demonstration.
+	It's the web portal of a fictional company.
+</p>
+
+<h2>Techniques</h2>
+<ul>
+	<li>Frontend</li>
+	<ul>
+		<li>Angular 11</li>
+		<li>MDBootstrap (for the moment...)</li>
+	</ul>
+	<li>Backend</li>
+	<ul>
+		<li>Spring Boot (Java)</li>
+		<li>MariaDB</li>
+		<li>JPA / Hibernate (customer administration)</li>
+		<li>JDBC (user administration)</li>
+		<li>Elasticsearch / JPA (product administration)</li>
+		<li>Elasticsearch / REST Client (invoice administration)</li>
+	</ul>
+</ul>
+
+<h2>Roadmap for Features</h2>
+<ul>
+	<li>Initializer</li>
+	<ul>
+		<li>Checking Server States</li>
+		<ul>
+			<li><mdb-badge color="green">Implemented</mdb-badge> Backend API (REST)</li>
+			<li><mdb-badge color="green">Implemented</mdb-badge> Elasticsearch (REST API)</li>
+			<li><mdb-badge color="green">Implemented</mdb-badge> Elasticsearch Head Plugin</li>
+		</ul>
+		<li>Database Tables</li>
+		<ul>
+			<li>Customers</li>
+			<ul>
+				<li><mdb-badge color="green">Implemented</mdb-badge> Show the number of customers</li>
+				<li><mdb-badge color="green">Implemented</mdb-badge> Initialize records: Adds 10 fake customers at a time.</li>
+			</ul>
+			<li>Users</li>
+			<ul>
+				<li><mdb-badge color="green">Implemented</mdb-badge> Show the number of users</li>
+				<li><mdb-badge color="green">Implemented</mdb-badge> Initialize records: Adds 7 fake users at a time.</li>
+			</ul>
+		</ul>
+		<li>Elasticsearch</li>
+		<ul>
+			<li>Templates</li>
+			<ul>
+				<li><mdb-badge color="red">Still missing</mdb-badge> Checking Templates</li>
+				<li><mdb-badge color="red">Still missing</mdb-badge> Creating or updating Templates if they don't exist or their Mappings or Settings or Index patterns are outdated.</li>
+			</ul>
+			<li>Indices</li>
+			<ul>
+				<li><mdb-badge color="red">Still missing</mdb-badge> Checking Indices</li>
+				<li><mdb-badge color="red">Still missing</mdb-badge> Creating or updating Indices, if they don't exist or their Mappings or Settings are outdated.</li>
+			</ul>
+			<li>Products</li>
+			<ul>
+				<li><mdb-badge color="red">Still missing</mdb-badge> Show the number of products</li>
+				<li><mdb-badge color="red">Still missing</mdb-badge> Initialize documents: Add several fake products at a time</li>
+			</ul>
+			<li>Invoices</li>
+			<ul>
+				<li><mdb-badge color="red">Still missing</mdb-badge> Show the number of invoices</li>
+				<li><mdb-badge color="red">Still missing</mdb-badge> Initialize documents: Add several fake invoices at a time</li>
+			</ul>
+		</ul>
+	</ul>
+	<li>Customers (JPA / Hibernate)</li>
+	<ul>
+		<li>Customer Search</li>
+		<ul>
+			<li><mdb-badge color="green">Implemented</mdb-badge> Customer search using a custom filter</li>
+			<li><mdb-badge color="red">Still missing</mdb-badge> Pagination of the result list</li>
+		</ul>
+		<li>Customer manipulation</li>
+		<ul>
+			<li><mdb-badge color="green">Implemented</mdb-badge> Customer creation</li>
+			<li><mdb-badge color="green">Implemented</mdb-badge> Customer update</li>
+			<li><mdb-badge color="red">Still missing</mdb-badge> Frontend Validation</li>
+			<li><mdb-badge color="orange">Partly implemented</mdb-badge> Backend Validation</li>
+		</ul>
+	</ul>
+	<li>Users (JDBC)</li>
+	<ul>
+		<li>User Search</li>
+		<ul>
+			<li><mdb-badge color="green">Implemented</mdb-badge> User search using a custom filter</li>
+			<li><mdb-badge color="red">Still missing</mdb-badge> Pagination of the result list</li>
+		</ul>
+		<li>User manipulation</li>
+		<ul>
+			<li><mdb-badge color="green">Implemented</mdb-badge> User creation</li>
+			<li><mdb-badge color="green">Implemented</mdb-badge> User update</li>
+			<li><mdb-badge color="red">Still missing</mdb-badge> Frontend Validation</li>
+			<li><mdb-badge color="red">Still missing</mdb-badge> Backend Validation</li>
+		</ul>
+	</ul>
+	<li>Products (Elasticsearch / JPA)</li>
+	<ul>
+		<li>Product Search</li>
+		<ul>
+			<li><mdb-badge color="red">Still missing</mdb-badge> Product search using a custom filter</li>
+			<li><mdb-badge color="red">Still missing</mdb-badge> Pagination of the result list</li>
+		</ul>
+		<li>Product manipulation</li>
+		<ul>
+			<li><mdb-badge color="red">Still missing</mdb-badge> Product creation</li>
+			<li><mdb-badge color="red">Still missing</mdb-badge> Product update</li>
+			<li><mdb-badge color="red">Still missing</mdb-badge> Frontend Validation</li>
+			<li><mdb-badge color="red">Still missing</mdb-badge> Backend Validation</li>
+		</ul>
+	</ul>
+	<li>Invoices (Elasticsearch / REST Client)</li>
+	<ul>
+		<li>Invoice Search</li>
+		<ul>
+			<li><mdb-badge color="red">Still missing</mdb-badge> Invoice search using a custom filter</li>
+			<li><mdb-badge color="red">Still missing</mdb-badge> Pagination of the result list</li>
+		</ul>
+		<li>Product manipulation</li>
+		<ul>
+			<li><mdb-badge color="red">Still missing</mdb-badge> Invoice creation</li>
+			<li><mdb-badge color="red">Still missing</mdb-badge> Invoice update</li>
+			<li><mdb-badge color="red">Still missing</mdb-badge> Frontend Validation</li>
+			<li><mdb-badge color="red">Still missing</mdb-badge> Backend Validation</li>
+		</ul>
+	</ul>
+	<li>Frontend Tests</li>
+	<ul>
+		<li><mdb-badge color="red">Still missing</mdb-badge> Write tests for everything</li>
+	</ul>
+	<li>Backend Tests</li>
+	<ul>
+		<li><mdb-badge color="red">Still missing</mdb-badge> Write tests for everything</li>
+	</ul>
+	<li>SCSS Styling</li>
+	<ul>
+		<li><mdb-badge color="red">Still missing</mdb-badge> Choosing the final SCSS framework to use or build my own</li>
+		<li><mdb-badge color="red">Still missing</mdb-badge> Apply stylings</li>
+	</ul>
+	<li>Security Features</li>
+	<ul>
+		<li><mdb-badge color="red">Still missing</mdb-badge> User Login (OAuth)</li>
+		<li><mdb-badge color="red">Still missing</mdb-badge> Access Restriction for some parts</li>
+		<li><mdb-badge color="red">Still missing</mdb-badge> Password change</li>
+		<ul>
+			<li><mdb-badge color="red">Still missing</mdb-badge> Initially or after resetting</li>
+			<li><mdb-badge color="red">Still missing</mdb-badge> With a valid password</li>
+		</ul>
+	</ul>
+</ul>
+

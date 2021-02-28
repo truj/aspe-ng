@@ -1,0 +1,28 @@
+<div class="row">
+	<div *ngFor="let u of users" class="col-md-6 col-lg-4">
+		<mdb-card>
+			<mdb-card-body>
+				<mdb-card-title>
+					<h2>{{u.userName}}</h2>
+				</mdb-card-title>
+				<mdb-card-text>
+					<div class="row">
+						<div class="col-6">id</div>
+						<div class="col-6">{{u.id}}</div>
+						<div class="col-6">User Name</div>
+						<div class="col-6">{{u.userName}}</div>
+						<div class="col-6">Real Name</div>
+						<div class="col-6">{{u.realName}}</div>
+						<div class="col-6">E-Mail</div>
+						<div class="col-6">{{u.email}}</div>
+						<div class="col-6">Last Login</div>
+						<div class="col-6">{{u.lastLogin}}</div>
+					</div>
+				</mdb-card-text>
+				<div>
+					<button routerLink="/user/{{u.id}}" class="btn btn-secondary">Edit</button>
+				</div>
+			</mdb-card-body>
+		</mdb-card>
+	</div>
+</div>

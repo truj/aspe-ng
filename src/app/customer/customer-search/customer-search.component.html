@@ -1,0 +1,89 @@
+<div class="row">
+	<div class="col">
+		<button routerLink="/customer/new" class="btn btn-secondary">Create New Customer</button>
+	</div>
+</div>
+
+<form>
+	<mdb-card>
+		<mdb-card-body>
+			<div class="row">
+				<div class="col-md-6 col-lg-4">
+					<div class="md-form">
+						<input class="form-control mb-4" type="text" mdbInput
+							[(ngModel)]="filter.id" id="id" name="id"
+						/>
+						<label for="id">Customer ID</label>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-4">
+					<div class="md-form">
+						<input class="form-control mb-4" type="text" mdbInput
+							[(ngModel)]="filter.firstName" id="firstName" name="firstName"
+						/>
+						<label for="firstName">First Name</label>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-4">
+					<div class="md-form">
+						<input class="form-control mb-4" type="text" mdbInput
+							[(ngModel)]="filter.lastName" id="lastName" name="lastName"
+						/>
+						<label for="lastName">Last Name</label>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-4">
+					<div class="md-form">
+						<input class="form-control mb-4" type="text" mdbInput
+							[(ngModel)]="filter.email" id="email" name="email"
+						/>
+						<label for="email">E-Mail</label>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-4">
+					<div class="md-form">
+						<input class="form-control mb-4" type="text" mdbInput
+							[(ngModel)]="filter.phone" id="phone" name="phone"
+						/>
+						<label for="phone">Phone</label>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-4">
+					<div class="md-form">
+						<input class="form-control mb-4" type="text" mdbInput
+							[(ngModel)]="filter.street" id="street" name="street"
+						/>
+						<label for="street">Street</label>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-4">
+					<div class="md-form">
+						<input class="form-control mb-4" type="text" mdbInput
+							[(ngModel)]="filter.zipcode" id="zipcode" name="zipcode"
+						/>
+						<label for="zipcode">Zipcode</label>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-4">
+					<div class="md-form">
+						<input class="form-control mb-4" type="text" mdbInput
+							[(ngModel)]="filter.city" id="city" name="city"
+						/>
+						<label for="city">City</label>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<label>
+						<button (click)="search()" class="btn btn-primary">Search</button>
+					</label>
+				</div>
+			</div>
+		</mdb-card-body>
+	</mdb-card>
+</form>
+
+<div *ngIf="!isWaiting">
+	<app-customer-list [customers]="customers"></app-customer-list>
+</div>

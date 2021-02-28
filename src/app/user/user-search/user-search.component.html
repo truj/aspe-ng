@@ -1,0 +1,116 @@
+<div class="row">
+	<div class="col">
+		<button routerLink="/user/new" class="btn btn-secondary">Create New User</button>
+	</div>
+</div>
+
+<form (change)="filterChanged()">
+	<mdb-card>
+		<mdb-card-body>
+			<div class="row">
+				<div class="col-md-6 col-lg-4">
+					<div class="md-form">
+						<input class="form-control mb-4" type="text" mdbInput
+							[(ngModel)]="filter.id" id="id" name="id"
+						/>
+						<label for="id">User ID</label>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-4">
+					<div class="md-form">
+						<input class="form-control mb-4" type="text" mdbInput
+							[(ngModel)]="filter.userName" id="userName" name="userName"
+						/>
+						<label for="userName">User Name</label>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-4">
+					<div class="md-form">
+						<input class="form-control mb-4" type="text" mdbInput
+							[(ngModel)]="filter.realName" id="realName" name="realName"
+						/>
+						<label for="realName">Real Name</label>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-4">
+					<div class="md-form">
+						<input class="form-control mb-4" type="text" mdbInput
+							[(ngModel)]="filter.email" id="email" name="email"
+						/>
+						<label for="email">E-Mail</label>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-4">
+					<div class="md-form">
+						<input class="form-control mb-4" type="date" mdbInput
+							[(ngModel)]="filter.lastLoginMin" id="lastLoginMin" name="lastLoginMin"
+						/>
+						<label for="lastLoginMin">Min. Last Login</label>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-4">
+					<div class="md-form">
+						<input class="form-control mb-4" type="date" mdbInput
+							[(ngModel)]="filter.lastLoginMax" id="lastLoginMax" name="lastLoginMax"
+						/>
+						<label for="lastLoginMax">Max. Last Login</label>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-4">
+					<div>
+						<label for="active">Active / Inactive</label>
+						<select class="form-control mb-4" [(ngModel)]="filter.active" id="active" name="active">
+							<option value="all" selected="selected">all</option>
+							<option value="active">active</option>
+							<option value="inactive">inactive</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					Current Search Filter:
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<ul>
+						<li>User Name: <b>{{filter.userName}}</b></li>
+						<li>Real Name: <b>{{filter.realName}}</b></li>
+						<li>E-Mail: <b>{{filter.email}}</b></li>
+						<li>
+							Last Login:
+							<b>
+								<span *ngIf="!isLastLoginFilterSet('min') && !isLastLoginFilterSet('max')">all</span>
+								<span *ngIf="!isLastLoginFilterSet('min') && isLastLoginFilterSet('max')">{{filter.lastLoginMax}} or sooner</span>
+								<span *ngIf="isLastLoginFilterSet('min') && !isLastLoginFilterSet('max')">{{filter.lastLoginMin}} or later</span>
+								<span *ngIf="isLastLoginFilterSet('min') && isLastLoginFilterSet('max')">between {{filter.lastLoginMin}} and {{filter.lastLoginMax}}</span>
+							</b>
+						</li>
+						<li>Active / Inactive: <b>{{filter.active}}</b></li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<label>
+						<button (click)="search()" class="btn btn-primary">Search</button>
+					</label>
+				</div>
+			</div>
+		</mdb-card-body>
+	</mdb-card>
+</form>
+
+<div *ngIf="isWaiting">
+	<b>Searching! Please be patient...</b>
+</div>
+
+<div *ngIf="hasError">
+	<b>Error:</b>
+	{{error}}
+</div>
+
+<div *ngIf="!isWaiting">
+	<app-user-list [users]="users"></app-user-list>
+</div>

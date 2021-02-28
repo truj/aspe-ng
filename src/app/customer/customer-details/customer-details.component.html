@@ -1,0 +1,100 @@
+<div *ngIf="!isReady">
+	<div class="row">
+		<div class="alert alert-info">
+			Please Wait...
+		</div>
+	</div>
+</div>
+
+<div *ngIf="isReady">
+	<form *ngIf="!idFormatError && !fetchError">
+		<mdb-card>
+			<mdb-card-body>
+				<div class="row">
+					<span *ngIf="exists" class="col-md-12">
+						id: {{customer.id}}
+					</span>
+					<div class="col-md-6 col-lg-4">
+						<div class="md-form">
+							<input class="form-control mb-4 col-md-6" type="text" mdbInput
+								[(ngModel)]="customer.firstName" id="firstName" name="firstName"
+							/>
+							<label for="firstName">First Name</label>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-4">
+						<div class="md-form">
+							<input class="form-control mb-4 col-md-6" type="text" mdbInput
+								[(ngModel)]="customer.lastName" id="lastName" name="lastName"
+							/>
+							<label for="lastName">Last Name</label>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-4">
+						<div class="md-form">
+							<input class="form-control mb-4 col-md-6" type="text" mdbInput
+								[(ngModel)]="customer.email" id="email" name="email"
+							/>
+							<label for="email">E-Mail</label>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-4">
+						<div class="md-form">
+							<input class="form-control mb-4 col-md-6" type="text" mdbInput
+								[(ngModel)]="customer.phone" id="phone" name="phone"
+							/>
+							<label for="phone">Phone</label>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-4">
+						<div class="md-form">
+							<input class="form-control mb-4 col-md-6" type="text" mdbInput
+								[(ngModel)]="customer.street" id="street" name="street"
+							/>
+							<label for="street">Street</label>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-4">
+						<div class="md-form">
+							<input class="form-control mb-4 col-md-6" type="text" mdbInput
+								[(ngModel)]="customer.zipcode" id="zipcode" name="zipcode"
+							/>
+							<label for="zipcode">Zipcode</label>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-4">
+						<div class="md-form">
+							<input class="form-control mb-4 col-md-6" type="text" mdbInput
+								[(ngModel)]="customer.city" id="city" name="city"
+							/>
+							<label for="city">City</label>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<button (click)="save()" class="btn btn-primary">{{ exists ? 'Update' : 'Create' }}</button>
+					</div>
+				</div>
+			</mdb-card-body>
+		</mdb-card>
+	</form>
+
+	<div class="row" *ngIf="idFormatError">
+		<div class="alert alert-danger">
+			Error: The customer ID is not a valid number!
+		</div>
+	</div>
+
+	<div class="row" *ngIf="fetchError">
+		<div class="alert alert-danger">
+			Error: The customer could not be found!
+		</div>
+	</div>
+
+	<div class="row" *ngIf="saveError">
+		<div class="alert alert-danger">
+			Error: The customer could not be saved!
+		</div>
+	</div>
+</div>

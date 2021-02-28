@@ -17,11 +17,7 @@ export class ProductSearchComponent implements OnInit {
   products: Product[] = [];
 
   constructor(private service: ProductService) {
-    this.filter = {
-      name: '',
-      type: '',
-      price: '',
-    };
+    this.filter = new ProductFilter();
   }
 
   ngOnInit(): void {
@@ -45,6 +41,24 @@ export class ProductSearchComponent implements OnInit {
         this.isWaiting = false;
       },
     );
+  }
+
+  isPriceFilterSet(type: string): boolean {
+    if ('min' === type) {
+      if (undefined === this.filter.priceMin) { return false; }
+      if (''        === this.filter.priceMin) { return false; }
+      if (isNaN(+this.filter.priceMin))       { return false; }
+      return true;
+    }
+    else if ('max' === type) {
+      if (undefined === this.filter.priceMax) { return false; }
+      if (''        === this.filter.priceMax) { return false; }
+      if (isNaN(+this.filter.priceMax))       { return false; }
+      return true;
+    }
+    else {
+      throw new Error('invalid price type');
+    }
   }
 
 }

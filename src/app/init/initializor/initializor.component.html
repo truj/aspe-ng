@@ -1,1 +1,167 @@
-<p>initializor works!</p>
+<div class="container">
+	<h2>Server State</h2>
+	<div class="row">
+		<div class="col-md-6 col-lg-4">
+			<mdb-card>
+				<mdb-card-body>
+					<mdb-card-title><h3>API</h3></mdb-card-title>
+					<mdb-card-text>
+						<button (click)="checkServerState('api')" class="btn btn-secondary">Check Again</button>
+						<ul *ngIf="apiState">
+							<li>
+								<b *ngIf="apiState.online" class="text-success">online</b>
+								<b *ngIf="!apiState.online" class="text-danger">offline or CORS problem</b>
+							</li>
+							<li><b>url: </b><a href="{{ apiState.url }}" target="_blank">{{ apiState.url }}</a></li>
+							<li *ngIf="apiState.success || apiState.httpStatus || apiState.errorMsg">
+								<b>status: </b>
+								<span *ngIf="apiState.success" class="text-success">success</span>
+								<span *ngIf="apiState.httpStatus" class="text-danger">{{ apiState.httpStatus }}</span>&nbsp;
+								<span *ngIf="apiState.errorMsg" class="text-danger">{{ apiState.errorMsg }}</span>
+							</li>
+							<li *ngIf="apiState.jsonResponse"><b>response: </b><pre>{{ apiState.jsonResponse }}</pre></li>
+						</ul>
+					</mdb-card-text>
+				</mdb-card-body>
+			</mdb-card>
+		</div>
+
+		<div class="col-md-6 col-lg-4">
+			<mdb-card>
+				<mdb-card-body>
+					<mdb-card-title><h3>Elasticsearch</h3></mdb-card-title>
+					<mdb-card-text>
+						<button (click)="checkServerState('es')" class="btn btn-secondary">Check Again</button>
+						<ul *ngIf="esState">
+							<li>
+								<b *ngIf="esState.online" class="text-success">online</b>
+								<b *ngIf="!esState.online" class="text-danger">offline or CORS problem</b>
+							</li>
+							<li><b>url: </b><a href="{{ esState.url }}" target="_blank">{{ esState.url }}</a></li>
+							<li *ngIf="esState.success || esState.httpStatus || esState.errorMsg">
+								<b>status: </b>
+								<span *ngIf="esState.success" class="text-success">success</span>
+								<span *ngIf="esState.httpStatus" class="text-danger">{{ esState.httpStatus }}</span>&nbsp;
+								<span *ngIf="esState.errorMsg" class="text-danger">{{ esState.errorMsg }}</span>
+							</li>
+							<li *ngIf="esState.jsonResponse"><b>response: </b><pre>{{ esState.jsonResponse }}</pre></li>
+						</ul>
+					</mdb-card-text>
+				</mdb-card-body>
+			</mdb-card>
+		</div>
+
+		<div class="col-md-6 col-lg-4">
+			<mdb-card>
+				<mdb-card-body>
+					<mdb-card-title><h3>Head Plugin (Elasticsearch)</h3></mdb-card-title>
+					<mdb-card-text>
+						<button (click)="checkServerState('head')" class="btn btn-secondary">Check Again</button>
+						<ul *ngIf="headState">
+							<li>
+								<b *ngIf="headState.online" class="text-success">online</b>
+								<b *ngIf="!headState.online" class="text-danger">offline or CORS problem</b>
+							</li>
+							<li><b>url: </b><a href="{{ headState.url }}" target="_blank">{{ headState.url }}</a></li>
+							<li *ngIf="headState.success || headState.httpStatus || headState.errorMsg">
+								<b>status: </b>
+								<span *ngIf="headState.success" class="text-success">success</span>
+								<span *ngIf="headState.httpStatus" class="text-danger">{{ headState.httpStatus }}</span>&nbsp;
+								<span *ngIf="headState.errorMsg" class="text-danger">{{ headState.errorMsg }}</span>
+							</li>
+						</ul>
+					</mdb-card-text>
+				</mdb-card-body>
+			</mdb-card>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<h2>Database Tables</h2>
+	<div class="row">
+		<div class="col-md-6 col-lg-4">
+			<mdb-card>
+				<mdb-card-body>
+					<mdb-card-title><h3>Customers</h3></mdb-card-title>
+					<mdb-card-text>
+						<button (click)="getRecordCount('customer')" class="btn btn-secondary">Count Again</button>
+						<p>Number of customers: {{ customerCount !== undefined ? customerCount : 'unknown' }}</p>
+						<button (click)="initCustomers()" class="btn btn-primary">Create Initial Customers</button>
+					</mdb-card-text>
+				</mdb-card-body>
+			</mdb-card>
+		</div>
+
+		<div class="col-md-6 col-lg-4">
+			<mdb-card>
+				<mdb-card-body>
+					<mdb-card-title><h3>Users</h3></mdb-card-title>
+					<mdb-card-text>
+						<button (click)="getRecordCount('user')" class="btn btn-secondary">Count Again</button>
+						<p>Number of users: {{ userCount !== undefined ? userCount : 'unknown' }}</p>
+						<button (click)="initUsers()" class="btn btn-primary">Create Initial Users</button>
+					</mdb-card-text>
+				</mdb-card-body>
+			</mdb-card>
+		</div>
+	</div>
+</div>
+
+
+<div class="container">
+	<h2>Elasticsearch</h2>
+	<div class="row">
+
+		<div class="col-md-6 col-lg-4">
+			<mdb-card>
+				<mdb-card-body>
+					<h3>Templates</h3>
+					Not yet implemented.
+					<!-- <div *ngFor="let name of templatesToCheck">
+						<h4>{{name}}</h4>
+						<button (click)="fetchTemplate(name);" class="btn btn-secondary">Check</button>
+						<div id="template.{{name}}">
+							<div *ngIf="templates.get(name)">
+								<ul>
+									<li>name: {{name}}</li>
+								</ul>
+							</div>
+							<div *ngIf="errors.get('template.' + name)">
+								<b>{{ errors.get('template.' + name) }}</b>
+							</div>
+						</div>
+					</div> -->
+				</mdb-card-body>
+			</mdb-card>
+		</div>
+
+		<div class="col-md-6 col-lg-4">
+			<mdb-card>
+				<mdb-card-body>
+					<h3>Indices</h3>
+					Not yet implemented.
+				</mdb-card-body>
+			</mdb-card>
+		</div>
+
+		<div class="col-md-6 col-lg-4">
+			<mdb-card>
+				<mdb-card-body>
+					<h3>Index Mappings</h3>
+					Not yet implemented.
+				</mdb-card-body>
+			</mdb-card>
+		</div>
+
+		<div class="col-md-6 col-lg-4">
+			<mdb-card>
+				<mdb-card-body>
+					<h3>Documents</h3>
+					Not yet implemented.
+				</mdb-card-body>
+			</mdb-card>
+		</div>
+
+	</div>
+</div>
